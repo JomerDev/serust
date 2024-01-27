@@ -26,6 +26,10 @@ pub struct Args {
     #[arg(short, long, action=ArgAction::SetTrue)]
     pub reconnect: Option<bool>,
 
+    /// Write out message on reconnect
+    #[arg(short, long, action=ArgAction::SetTrue)]
+    pub write_on_reconnect: Option<bool>,
+
     /// List available ports
     #[arg(short, long, action=ArgAction::SetTrue)]
     pub list: bool,

@@ -108,6 +108,10 @@ pub fn open_with_reconnect(args: &Args) -> Result<()> {
                         // Delay before attempting the next reconnect
                         std::thread::sleep(Duration::from_secs(1));
 
+                        if let Some(true) = args.write_on_reconnect {
+                            let _ = std::io::stdout().write("\n -- RECONNECT -- \n\n".as_bytes());
+                        }
+
                         // Decrease the retry count
                         retry_count -= 1;
 
